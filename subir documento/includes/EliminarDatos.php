@@ -7,6 +7,8 @@
 
     $resultado = mysqli_query($conexion, $sql);
     if ($resultado === TRUE) {
+      
+      header('index.php');
     }
 
 ?>
