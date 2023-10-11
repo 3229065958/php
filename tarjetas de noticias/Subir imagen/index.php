@@ -28,45 +28,22 @@ if(isset($_GET['delete_id']))
 <title>acueducto</title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Agrega esto en el elemento head de tu HTML -->
-
+<script src="bootstrap/js/jquery.min.js"></script>
+<link rel="stylesheet" href="stilo.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<script src="bootstrap/js/jquery.min.js"></script>
 </head>
 
 <body>
-	
 
-  <div class="container">
-   
-  </div>
+ 
 </div>
 <div class="container">
   <div class="page-header">
-   <center> <h1 class="h2">Nuestra junta  Administradora.</h1></center>
-		
-	
- 
-	
-	
-
-</div>
+   <center><h1 class="h2">Mostrar todos. / <a class="btn btn-default" href="AgreagarNuevo.php"> <span class="glyphicon glyphicon-plus"></span> &nbsp; Agregar nuevo</a></h1></center> 
+  </div>
   <br />
-  <p>
-
-De conformidad con lo dispuesto en el artículo séptimo del Acuerdo No. 6 de 1995 del Concejo de Bogotá D.C. y en el artículo séptimo del Marco Estatutario de la Empresa (Acuerdo 5 de 2019), la dirección y administración de la Empresa está a cargo de la Junta Directiva y del Gerente General.
-
-La Junta Directiva está compuesta por nueve (9) miembros escogidos y designados por el Alcalde Mayor de Bogotá D.C. y tiene a su cargo atribuciones relacionadas con el establecimiento del norte estratégico de la Empresa, con la definición de políticas en materia de gobernabilidad, con la definición de asuntos de talento humano, de gestión financiera, de control y supervisión de la entidad.
-
-Actualmente la composición de la Junta Directiva se encuentra establecida en el Decreto Distrital 158 de abril 28 de 2021 expedido por la Alcaldesa Mayor de Bogotá D.C. y frente a su remuneración la norma vigente es el Decreto Distrital No. 082 de 2022.
-
-
-
-</p>
-
-  <div class="row">
+  <div class="">
     <?php
 	
 	$stmt = $DB_con->prepare('SELECT Imagen_ID, Imagen_Marca, Imagen_Tipo, Imagen_Img FROM tbl_imagenes ORDER BY Imagen_ID DESC');
@@ -78,21 +55,38 @@ Actualmente la composición de la Junta Directiva se encuentra establecida en el
 		{
 			extract($row);
 			?>
-
-
-
-    <div class="col-sm-3"  >
-    <hr>
-	
-      <center><img src="imagenes/<?php echo $row['Imagen_Img']; ?>" class="img-rounded"  style="max-width:50%"
-   
-    
-   "/></center>
-	  <center><h6 style="max-width:100%" ><strong>perfil</strong></h6>
-	<p class="page-header" style="max-width:50%"><?php echo $Imagen_Marca."&nbsp;/&nbsp;".$Imagen_Tipo; ?>  </p></center>
+    <div class=" col-sm-3">
 
 	
+  <div class="tarjeta"  >
+<div class="titulo"><h3 class="page-header" ><?php echo $Imagen_Marca."&nbsp;
+	  &nbsp;" ?></h3></strong></div>
+<div class="cuerpo">
+<img src="imagenes/<?php echo $row['Imagen_Img']; ?>" class="img-rounded"  style="width:100%"   >
 
+<p class="d-inline-flex gap-1">
+
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Button with data-bs-target
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+  <p class="page-header"  style="font-size: 17px" ><?php echo "&nbsp;&nbsp;".$Imagen_Tipo; ?> </p></strong>
+  </div>
+</div>
+
+</div>
+
+<div class="pie">
+<!-- Button trigger modal -->
+
+
+
+</div>
+</div>
+     <br>
+	 
     </div>
 	
     <?php
@@ -109,7 +103,8 @@ Actualmente la composición de la Junta Directiva se encuentra establecida en el
 	
 ?>
 
- 
+
+
 <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
